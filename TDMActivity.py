@@ -12,7 +12,7 @@ class SalaryCalculator:
         return 1200
 
     def compute_philhealth_contribution(self):
-        return (self.gross_salary * 0.05) / 2
+        return (self.gross_salary * 0.05) / 2 
 
     def compute_pagibig_contribution(self):
         return 100
