@@ -1,19 +1,40 @@
-def compute_deductions(monthly_salary):
-    sss_contribution = 1200
-    philhealth_contribution = (monthly_salary * 0.05) / 2
-    pagibig_contribution = 100
-    income_tax = 1875
+def compute_sss_contribution():
+    return 1200
 
-    total_deductions = sss_contribution + philhealth_contribution + pagibig_contribution + income_tax
-    net_monthly_salary = monthly_salary - total_deductions
+def compute_philhealth_contribution(gross_salary):
+    return (gross_salary * 0.05) / 2
 
-    print("Gross Monthly Salary: {:.2f}".format(monthly_salary))
-    print("SSS Contribution: {:.2f}".format(sss_contribution))
-    print("PhilHealth Contribution: {:.2f}".format(philhealth_contribution))
-    print("Pag-IBIG Contribution: {:.2f}".format(pagibig_contribution))
-    print("Income Tax: {:.2f}".format(income_tax))
-    print("Total Deductions: {:.2f}".format(total_deductions))
-    print("Net Monthly Salary: {:.2f}".format(net_monthly_salary))
+def compute_pagibig_contribution():
+    return 100
 
-monthly_salary = float(input("Enter your monthly salary: "))
-compute_deductions(monthly_salary)
+def compute_income_tax():
+    return 1875  # Assuming fixed value for simplicity
+
+def compute_total_deductions(gross_salary):
+    sss = compute_sss_contribution()
+    philhealth = compute_philhealth_contribution(gross_salary)
+    pagibig = compute_pagibig_contribution()
+    tax = compute_income_tax()
+    
+    total = sss + philhealth + pagibig + tax
+    return total, sss, philhealth, pagibig, tax
+
+def display_salary_breakdown(gross_salary, sss, philhealth, pagibig, tax, total_deductions, net_salary):
+    print("\nSalary Breakdown")
+    print("=================")
+    print(f"Gross Salary: {gross_salary:.2f}")
+    print(f"SSS Deduction: {sss:.2f}")
+    print(f"PhilHealth Deduction: {philhealth:.2f}")
+    print(f"Pag-IBIG Deduction: {pagibig:.2f}")
+    print(f"Tax Deduction: {tax:.2f}")
+    print(f"Total Deductions: {total_deductions:.2f}")
+    print(f"Net Salary: {net_salary:.2f}")
+
+def main():
+    salary = float(input("Enter your monthly salary: "))
+    total_deductions, sss, philhealth, pagibig, tax = compute_total_deductions(salary)
+    net_salary = salary - total_deductions
+    display_salary_breakdown(salary, sss, philhealth, pagibig, tax, total_deductions, net_salary)
+
+if __name__ == "__main__":
+    main()
