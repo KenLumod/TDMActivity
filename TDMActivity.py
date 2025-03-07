@@ -35,7 +35,17 @@ class SalaryCalculator:
         print(f"Net Salary: {self.net_salary:.2f}")
 
 def main():
-    salary = float(input("Enter your monthly salary: "))
+    while True:
+        try:
+            salary_input = input("Enter your monthly salary: ")
+            salary = float(salary_input)
+            if salary <= 0:
+                print("Error: Salary must be a positive number. Please try again.")
+                continue
+            break
+        except ValueError:
+            print("Error: Invalid input. Please enter a valid numeric salary.")
+
     calculator = SalaryCalculator(salary)
     calculator.display_salary_breakdown()
 
