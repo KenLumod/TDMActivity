@@ -35,6 +35,8 @@ class SalaryCalculator:
         print(f"Net Salary: {self.net_salary:.2f}")
 
 def main():
+    #This specific code checks if the input is a number and does not allow zero or negative values. If the user enters a non-numeric input, it shows an error and asks again until a valid salary is provided.
+    
     while True:
         try:
             salary_input = input("Enter your monthly salary: ")
