@@ -49,5 +49,5 @@ def main():
     calculator = SalaryCalculator(salary)
     calculator.display_salary_breakdown()
 
-if _name_ == "_main_":
+if __name__ == "__main__":
     main()
